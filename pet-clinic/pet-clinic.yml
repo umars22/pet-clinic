@@ -1,0 +1,27 @@
+- hosts: java
+  tasks:
+  - name: install packages
+    import_role: 
+       name: anisble-role-perequisites
+
+  - name: install openjdk
+    import_role: 
+       name: ansible-role-openjdk
+
+  - name: git clone
+    git:
+      repo: https://github.com/ikambarov/spring-petclinic.git
+      dest: /spring
+
+  - name: mvn package
+    shell: "./mvnw package"
+    args:
+      chdir: /spring
+      creates: /spring/target
+
+
+
+  - name: run java
+    shell: "java -jar target/*.jar"
+    args:
+      chdir: /spring

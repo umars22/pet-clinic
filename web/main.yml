@@ -21,8 +21,8 @@
       - unzip
 
   - name: Download template
-    get_url:
-      url: https://www.free-css.com/assets/files/free-css-templates/download/page260/wavefire.zip
+    get_url: 
+      url: {{ web }}
       dest: /var/www/html/
     
   - name: Unarchive a file that is already on the remote machine

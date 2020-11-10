@@ -1,0 +1,10 @@
+---
+# tasks file for anisble-role-perequisites
+
+-  name: Install perequisites
+   yum:
+     name: 
+      - wget
+      - unzip
+      - vim 
+      - git 
